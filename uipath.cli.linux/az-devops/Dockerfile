@@ -1,0 +1,12 @@
+FROM node:18-bullseye-slim
+ARG PACKAGE_VERSION=22.10.8418.30339
+LABEL org.opencontainers.image.source https://github.com/mysticrenji/uipath-cli-container-image
+RUN apt-get update \
+    && apt-get install -y wget \
+    && wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb \
+    && dpkg -i packages-microsoft-prod.deb \
+    && rm packages-microsoft-prod.deb \
+    && apt-get update \
+    && apt-get install -y dotnet-runtime-6.0 unzip\
+    && wget https://pkgs.dev.azure.com/uipath/Public.Feeds/_apis/packaging/feeds/1c781268-d43d-45ab-9dfc-0151a1c740b7/nuget/packages/UiPath.CLI/versions/$PACKAGE_VERSION/content?api-version=7.0-preview.1 -O /tmp/uipath.cli.$PACKAGE_VERSION.zip\
+    && unzip /tmp/uipath.cli.$PACKAGE_VERSION.zip 
