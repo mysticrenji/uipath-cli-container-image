@@ -9,7 +9,7 @@ RUN apt-get update \
     && rm packages-microsoft-prod.deb \
     && apt-get update \
     && apt-get install -y dotnet-runtime-6.0 unzip jq curl\
-    && wget https://pkgs.dev.azure.com/uipath/Public.Feeds/_apis/packaging/feeds/$FEED_ID/nuget/packages/UiPath.CLI/versions/$PACKAGE_VERSION/content?api-version=7.0-preview.1 -O /tmp/uipath.cli.$PACKAGE_VERSION.zip\
+    && wget https://pkgs.dev.azure.com/uipath/Public.Feeds/_apis/packaging/feeds/$FEED_ID/nuget/packages/UiPath.CLI/versions/$PACKAGE_VERSION/content?api-version=7.1 -O /tmp/uipath.cli.$PACKAGE_VERSION.zip\
     && unzip /tmp/uipath.cli.$PACKAGE_VERSION.zip 
 COPY uipathcli.sh /bin 
 RUN chmod +x /bin/uipathcli.sh
