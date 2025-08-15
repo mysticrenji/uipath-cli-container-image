@@ -1,4 +1,4 @@
-FROM alpine:3.18
+FROM alpine:3.22
 ARG PACKAGE_VERSION=24.10.9050.17872
 LABEL org.opencontainers.image.source https://github.com/mysticrenji/uipath-cli-container-image
 RUN apk add dotnet6-runtime wget unzip bash\
