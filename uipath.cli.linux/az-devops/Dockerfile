@@ -1,4 +1,4 @@
-FROM node:22-bullseye-slim
+FROM node:24-bullseye-slim
 ARG PACKAGE_VERSION=24.10.9050.17872
 ARG FEED_ID=1c781268-d43d-45ab-9dfc-0151a1c740b7
 LABEL org.opencontainers.image.source https://github.com/mysticrenji/uipath-cli-container-image
